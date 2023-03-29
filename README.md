@@ -12,15 +12,15 @@ This is a Python application for cyber security tasks. It has a GUI interface an
 Python 3.7
 
 ## Installation
-Install Python 3.7
-Install requirements using pip install -r requirements.txt
-Install Nmap by following the instructions on the Nmap website.
+- Install Python 3.7
+- Install requirements using pip install -r requirements.txt
+- Install Nmap by following the instructions on the Nmap website.
 ## Usage
-Open a terminal and navigate to the directory containing the application.
-Run the command python App.py to start the application.
-Select the task you want to perform from the menu on the top of the screen.
-Enter any required information, such as target IP address or port range.
-Click the "Start" or "Submit" button to begin the task.
+- Open a terminal and navigate to the directory containing the application.
+- Run the command python App.py to start the application.
+- Select the task you want to perform from the menu on the top of the screen.
+- Enter any required information, such as target IP address or port range.
+- Click the "Start" or "Submit" button to begin the task.
 ### Chatbot
 The chatbot feature allows you to chat with a simple chatbot. To use this feature, click on the "Chatbot" button in the top menu. Type in your message and click the "Submit" button. The chatbot will respond with a message.
 
