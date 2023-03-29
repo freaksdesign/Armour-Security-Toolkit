@@ -6,7 +6,7 @@ This is a Python application for cyber security tasks. It has a GUI interface an
 ## Features
 - Chatbot
 - Port Scanner
- -Nmap Scan
+- Nmap Scan
 - Password Generator
 ## Requirements
 Python 3.7
