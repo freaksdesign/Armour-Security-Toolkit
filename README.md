@@ -10,6 +10,7 @@ This is a Python application for cyber security tasks. It has a GUI interface an
 - Password Generator
 ## Requirements
 Python 3.7
+Bash
 
 ## Installation
 - Install Python 3.7
