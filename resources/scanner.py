@@ -3,7 +3,7 @@ import json
 import socket
 from concurrent.futures import ThreadPoolExecutor
 
-resource_dir = os.path.join(os.path.dirname(__file__), "resources")
+
 
 class Scanner:
 
@@ -17,7 +17,7 @@ class Scanner:
         self.ports_info = self.load_ports_info()
 
     def load_ports_info(self):
-        with open(os.path.join(resource_dir, "ports.json")) as f:
+        with open("./resources/ports.json") as f:
             return json.load(f)
 
     def is_port_open(self, target, port):

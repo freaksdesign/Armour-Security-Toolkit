@@ -1,4 +1,10 @@
 #!/usr/bin/python
+# Name: Chris Armour
+# License: GPL-3
+# Lincense URL: https://www.gnu.org/licenses/gpl-3.0.en.html
+#This is a Python application for cyber security tasks. It has a GUI interface and it allows users to perform tasks such as chatting with a chatbot, scanning ports, and performing Nmap scans.
+
+
 
 
 import sys
@@ -6,14 +12,14 @@ import os
 import random
 import subprocess
 import string
-from PyQt6.QtCore import Qt, QThread, pyqtSignal, QObject, QTimer, QDateTime
-from PyQt6.QtGui import QFont, QBrush, QColor, QStandardItemModel, QStandardItem, QTextCharFormat,  QPalette, QPixmap, QIcon
+from PyQt6.QtCore import Qt, QThread, pyqtSignal, QObject, QTimer
+from PyQt6.QtGui import QFont, QColor,  QPalette, QPixmap, QIcon
 from PyQt6.QtWidgets import (QApplication, QWidget, QVBoxLayout, QHBoxLayout, QPushButton,
                              QTextEdit, QLineEdit, QLabel, QComboBox, QTableWidget, QTableWidgetItem,
-                             QCheckBox, QTableView, QScrollBar, QAbstractScrollArea, QSizePolicy, QStackedLayout,
+                             QCheckBox, QSizePolicy, QStackedLayout,
                              QSlider, QAbstractItemView, QHeaderView, )
-from chatbot import ChatBotApp
-from scanner import Scanner
+from resources.chatbot import ChatBotApp
+from resources.scanner import Scanner
 
 resource_dir = os.path.join(os.path.dirname(__file__), "resources")
 
@@ -59,7 +65,7 @@ class NmapWorker(QObject):
         self.output_file = output_file
 
     def run(self):
-        command = ["./nmap_auto.sh", "-C", self.cidr, "-S", self.start_octet, "-E", self.end_octet, "-O", self.output_file]
+        command = ["./resources/nmap_auto.sh", "-C", self.cidr, "-S", self.start_octet, "-E", self.end_octet, "-O", self.output_file]
         subprocess.run(command, check=True, text=True)
         with open(self.output_file, "r") as f:
             output = f.read()
@@ -396,14 +402,18 @@ class MainWindow(QWidget):
         # Letters
         self.letters_checkbox = QCheckBox("Letters (e.g. Aa - Zz)")
         self.letters_checkbox.setChecked(True)
+        self.letters_checkbox.stateChanged.connect(self.generate_password)
+
 
         # Digits
         self.digits_checkbox = QCheckBox("Digits (e.g. 0 - 9))")
         self.digits_checkbox.setChecked(True)
+        self.digits_checkbox.stateChanged.connect(self.generate_password)
 
         # Symbols
         self.symbols_checkbox = QCheckBox("Symbols (e.g. !@#$%^&*()")
         self.symbols_checkbox.setChecked(True)
+        self.symbols_checkbox.stateChanged.connect(self.generate_password)
 
 
         self.password_generator_layout.addWidget(self.generated_password, alignment=Qt.AlignmentFlag.AlignCenter)
